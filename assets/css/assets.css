@@ -1,0 +1,48 @@
+/* 60px to move the container down and
+  * make room for the navigation bar */
+body {
+    padding-top: 60px;
+}
+
+.navbar {
+    background-color: #000;
+    color: #fff;
+}
+
+#main-region {
+	width: 50%;
+    margin-left: 0px;
+}
+
+.list li {
+	list-style-type: none;
+}
+
+.list i {
+	cursor: pointer;
+}
+
+.list .fa-plus, .list .fa-times {
+	float: right;
+	margin: 0 7px;
+}
+
+.list .tree-node-content {
+	margin: 10px;
+	border: 1px solid #dae2ea;
+    background: #f8faff;
+    color: #7c9eb2;
+    padding: 10px 10px;
+    font-weight: bold;
+    min-height: 20px;
+    line-height: 20px;
+}
+
+.tree-node {
+    padding: 0;
+}
+
+.wrapper {
+	text-align: center;
+    width: 50%;
+}

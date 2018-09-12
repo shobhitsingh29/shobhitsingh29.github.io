@@ -1,12 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>tic tac toe</title>
 
+<head>
+    <meta charset="utf-8">
+    <title>Basic Marionette Application</title>
+    <link href="./assets/css/bootstrap.css" rel="stylesheet">
+    <link href="./assets/css/font-awesome.css" rel="stylesheet">
+    <link href="./assets/css/jquery-ui.css" rel="stylesheet">
+    <link href="./assets/css/assets.css" rel="stylesheet">
 </head>
+
 <body>
-<div id="root"></div>
-<script src="./dist/bundle.js"></script>
+    <!--Application header-->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <span class="brand">Tree manager</span>
+            </div>
+        </div>
+    </div>
+
+    <!--application's main area-->
+    <div id="app-container">
+        <div id="main-region" class="container">
+            
+        </div>
+    </div>
+    <div class="wrapper">
+        <input type="submit" name="get-tree-data" class="submit-btn btn">
+    </div>
+    <!--Templates -->
+
+    <script id="node-template" type="text/template">
+        <% if(nodes.length > 0) { %>
+            <div class="tree-node-content">
+                <i class="fa fa-minus-square-o toggle" aria-hidden="true"></i>
+                <a href= "#"><%= nodeName %></a>
+                <i class="fa fa-times"></i>
+                <i class="fa fa-plus"></i>
+            </div>
+            <ul></ul>
+        <% } else { %>
+            <div class="tree-node-content">
+                <a href= "#"><%= nodeName %></a>
+                <i class="fa fa-times"></i>
+                <i class="fa fa-plus"></i>
+            </div>
+        <% } %>
+    </script>
+
+    <!--Library Scripts for tree manager-->
+
+    <script src="./assets/js/vendor/jquery.js"></script>
+    <script src="./assets/js/vendor/json2.js"></script>
+    <script src="./assets/js/vendor/underscore.js"></script>
+    <script src="./assets/js/vendor/backbone.js"></script>
+    <script src="./assets/js/vendor/backbone.marionette.js"></script>
+    <script src="./assets/js/vendor/jquery-ui.js"></script>
+    <script src="./assets/js/vendor/jquery.mjs.nestedSortable.js"></script>
+
+
+    <!--Script for the tree manager-->
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/modules/entities/treenode.js"></script>
+    <script src="./assets/js/modules/treeApp/list/listView.js"></script>
+    <script src="./assets/js/modules/treeApp/list/listController.js"></script>
+    <script>
+
+        // starting the application
+        TreeManager.start();
+
+        $(document).ready(function () {
+            $($("ul.tree-node")[0]).addClass("list sortable");
+            $('.list').on('click', '.toggle', function () {
+                $(this).parent().parent().find('ul').toggle("fast");
+                $(this).toggleClass('fa-plus-square-o');
+                $(this).toggleClass('fa-minus-square-o');
+            });
+            $('.sortable').nestedSortable({
+                handle: 'div',
+                items: 'li',
+                toleranceElement: '> div',
+                disableParentChange: false,
+                listType: "ul",
+                start: function(e, ui){
+                    var parentToggleIcon = $(ui.item).closest('ul').closest('li').find('.toggle')[0];
+                    ui.item.attr('data-previndex', ui.item.index());
+                    ui.item.trigger('drag', parentToggleIcon);
+                },
+                update: function(e, ui){
+                    ui.item.trigger('drop', ui.item.index());
+                },
+                stop: function(e, ui){
+                    // we wont be using stop event as it is triggered even when the dom is not updated after drag-drop
+                },
+                protectRoot: true
+            });
+
+            // adding an event on submit button to retrieve current model state
+            $('.submit-btn').click(function(){
+                console.log(TreeManager.TreeApp.List.currentJSON());
+            });
+        });   
+    </script>
 </body>
+
 </html>
