@@ -10,10 +10,10 @@
 
     &::after {
         position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
+        left: 55%;
+        right: -11%;
+        top: -1%;
+        bottom: -2%;
         content: '';
         background: url("../images/bg-image.jpg");
         background-repeat: no-repeat;
@@ -50,7 +50,7 @@
     }
 
     .me {
-        margin-bottom: 6.5rem;   
+        margin-bottom: 6.5rem;
     }
 
     .social__icons {
@@ -80,7 +80,7 @@
 #social__icons {
     transition: all 0.5s;
     transform: scale(1);
-    
+
     &:hover {
         transform: scale(1.2);
     }
@@ -97,7 +97,7 @@
     letter-spacing: 0.57px;
     padding: 0 4.4rem;
     text-transform: uppercase;
-    border: solid 2px $base-color-2; 
+    border: solid 2px $base-color-2;
     position: relative;
     font-weight: 600;
     transition: color 0.3s;
@@ -111,7 +111,7 @@
 }
 
 .side__bar, .content__container {
-    flex: 1; 
+    flex: 1;
     position: relative;
 }
 
@@ -142,7 +142,7 @@
 
     .side__bar__menu__list {
         margin-bottom: 4.6rem;
-        
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -194,12 +194,12 @@
     }
 }
 
-// product 
+// product
 .product {
     margin-bottom: 11.8rem;
     position: relative;
     padding-left: 6.3rem;
-    
+
     &:after {
         animation: translateProductIcon 1s;
         animation-delay: 0.6s;
@@ -212,7 +212,7 @@
         left: -6px;
         top: 5px;
     }
-    
+
     &:last-child {
         margin-bottom: 0;
     }
@@ -229,7 +229,7 @@
         padding: 3rem 3rem 0 3rem;
         background: $base-light-grey;
         border-radius: 5px;
-        box-shadow: 0px 1px 2px rgba(183, 183, 183, 0.50); 
+        box-shadow: 0px 1px 2px rgba(183, 183, 183, 0.50);
 
         &.small__image {
             background: $base-white;
@@ -255,7 +255,7 @@
     margin: 7.7rem 9.9rem 0;
     padding-bottom: 11.8rem;
     border-left: solid 2px $base-light-grey-2;
-    min-height: calc(100vh - 7.7rem); 
+    min-height: calc(100vh - 7.7rem);
 }
 
 .footer {
@@ -276,7 +276,7 @@
         font-size: 1.3rem;
         align-items: center;
         justify-content: center;
-        border-top: solid 1px $base-light-grey-2; 
+        border-top: solid 1px $base-light-grey-2;
     }
 }
 
