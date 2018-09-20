@@ -1,0 +1,96 @@
+body{
+	font-family: 'Source Sans Pro', sans-serif;
+  letter-spacing: em(1.3px);
+	font-size: em(16px);
+	color: $base-black;
+	font-weight: 300;
+}
+
+*:focus{
+	outline: none;
+}
+
+a{
+	text-decoration: none;
+}
+
+.follow__center{
+	text-align: center;
+}
+
+// .__main{
+//   @include j-center(1280px);
+//   @include j-cf();
+//   position: relative;
+// }
+
+.__hamburger{
+	width: 30px;
+	div{
+		background: $base-black;
+		margin-bottom: 5px;
+		height: 3px;
+		&:last-child{
+			margin-bottom: 0px;
+		}
+	}
+}
+
+.__uppercase{
+	text-transform: uppercase;
+}
+
+.__table{
+	display: table;
+	position: relative;
+	&.__full{
+		width: 100%;
+	}
+	.table__cell{
+		display: table-cell;
+		vertical-align: middle;
+	}
+}
+
+.__section{
+	@include margin(em(35px) em(50px));
+}
+
+.__title{
+	font-size: $base-font-size + em(-1px);
+	@include padding(null null em(20px));
+	@include margin(null null em(25px));
+	@include position(relative , 0);
+	line-height: $base-line-height;
+	@extend .__uppercase;
+	font-weight: 600;
+	&:before{
+		border-top: solid 2px $base-color;
+		@include position(absolute, null 0 0);
+		content: "";
+	}
+}
+
+p.__saying{
+	line-height: $base-line-height + em(5px);
+	font-size: $base-font-size + em(1px);
+	letter-spacing: em(1.4px);
+	font-weight: 300;
+	b{
+		font-weight: 400;
+	}
+}
+
+.section__mg{
+	@include margin(em(40px) em(50px));
+}
+
+.__divider{
+	@include position(relative, 0);
+	@include padding(em(40px) 0);
+	&:before{
+		@include position(absolute, null 0 em(38px) 0);
+		border-bottom: solid 1px $base-color;
+		content: "";
+	}
+}

@@ -1,0 +1,281 @@
+.__main{
+	position: relative;
+}
+
+// ====== profile__section ====== //
+
+.profile__section{
+	// background: $white url('http://milee.co/img/geometry.png');
+	background: $white url('../assets/images/left_bg.png');
+	@include position(fixed, 0 null 0 0);
+	width: 40%;
+	&:before{
+		border-right: solid 2px $base-color;
+		@include position(absolute, 0);
+		content: '';
+		z-index: 1;
+	}
+}
+
+.profile__header{
+	@include position(absolute, 0 0 null);
+	@include padding (em(35px) em(40px));
+	margin-bottom: em(30px);
+	z-index: 2;
+	.__name{
+		font-size: $base-font-size + em(3px);
+		font-weight: 600;
+	}
+}
+
+.profile__bio__main{
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+.profile__bio{
+	@include position(relative,0);
+	vertical-align: middle;
+	display: table-cell;
+	z-index: 1;
+	.profile__img{
+		border: solid 1px $base-color;
+		@include border-radius(50%);
+		@include padding(em(2px));
+		overflow: hidden;
+		height: 200px;
+		width: 200px;
+		margin: auto;
+		img{
+			@include border-radius(50%);
+			width: 100%;
+		}
+	}
+
+	.profile__text{
+		line-height: $base-line-height + em(4px);
+		font-size: $base-font-size + em(4px);
+		letter-spacing: em(1.5px);
+		text-align: center;
+		font-weight: 200;
+		margin: em(35px);
+		p{
+			width: em(283px);
+			margin: auto;
+			a{
+				color: $base-black;
+				font-weight: 400;
+			}
+		}
+		b{
+			font-weight: 400;
+		}
+	}
+}
+
+.profile__footer{
+	@include position(absolute, null 2px 0 0);
+	border-top: solid 1px $base-color;
+	@include padding(em(10px) 0);
+	@extend .follow__center;
+	background: $white;
+	z-index: 1;
+	svg{
+		width: em(32px);
+		g#twitter{
+			@include transition(all ,300ms);
+			fill: #A5A5A5;
+			&:hover{
+				fill: $base-black;
+			}
+		}
+	}
+}
+
+// ====== other__section ====== //
+
+.other__section{
+	@include margin(null null null 40%);
+	@include position(relative, 0);
+	background: $white;
+	width: 60%;
+}
+
+// ====== section ====== //
+
+h3{
+	font-weight: 600;
+}
+
+.__section{
+	.inner__section{
+		@include margin(em(40px) em(50px));
+	}
+}
+
+// ====== skills ====== //
+
+.__skills{	
+	h3{
+		font-size: $base-font-size - em(1px);
+		@extend .__uppercase;
+		font-weight: bold;
+	}
+	.skills__section{
+		@include margin(em(40px) 0);
+		ul{
+			li{
+				font-size: $base-font-size + em(1px);
+				@include margin(0 0 em(15px));
+				span{
+					@include margin(0 em(10px) 0 0);
+					display: none;
+				}
+			}
+		}	
+	}
+}
+
+// ====== Work section ====== //
+
+.work__section{
+	.__work{
+		@include margin(0 0 em(40px));
+		h3{
+			font-size: $base-font-size + em(5px);
+			@include margin(em(40px) 0);
+			text-transform: capitalize;
+			font-weight: bold;
+			a{
+				@include transition(all 0.3s);
+				color: $base-black;
+				&:hover{
+					opacity: 0.9;
+				}
+			}
+		}
+		p.__saying{
+			@include margin(em(40px) 0);
+		}
+		img{
+			@include position(relative, 0);
+			width: 100%;
+		}
+	}	
+
+	.__mockup{
+		> a{
+			border: solid 1px $border-color;
+			@include position(relative, 0);
+			@include padding(em(0px));
+			@extend .follow__center;
+			display: block;
+			z-index: 5;
+		}
+		.__browser{
+			border-top-right-radius: em(2px);
+			border-top-left-radius: em(2px);
+			background: $border-color;
+			box-sizing: border-box;
+			padding: em(8px);
+			height: em(20px);
+		}
+	}
+}
+
+// ===== footer ===== //
+
+.__footer{
+	background: darken($base-black, 20%);
+	@include margin(em(80px) 0 0);
+	@include padding(0 em(35px));
+	.footer__top{
+		border-bottom: solid 1px $grey;
+		@include padding(em(55px) 0);
+		color: lighten($grey, 10%);
+		h1{
+			font-size: $base-font-size + em(13px);
+			margin-bottom: em(20px);
+		}
+		ul{
+			li{
+				display: inline-block;
+				margin-left: em(10px);
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+			a{
+				font-size: $base-font-size - em(2px);
+				@include transition(all 300ms);
+				font-weight: 400;
+				color: lighten($grey, 10%);
+				&:hover{
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+	.footer__bottom{
+		@include padding(em(35px) 0);
+		h5{
+			font-size: $base-font-size - em(4px);
+			font-weight: 300;
+			color: lighten($grey, 10%);
+		}
+	}
+}
+
+// ===== responsive ===== //
+
+@media screen and (max-width: $break-large) {
+	.profile__section{
+		@include position(relative, 0 0 0 0);
+  	width: 100%;
+  	&:before{
+  		border: 0;
+		}
+	}
+
+	.profile__footer{
+		@include position(relative, 0 0 0 0);
+		@include padding(0 0 em(40px));
+		@include margin(0 0 em(70px));
+		border-top : 0;
+	}
+
+	.other__section{
+		@include margin(0);
+		width: 100%;
+	}
+
+	.profile__header{
+		@include position(relative, 0);
+	}
+
+}
+
+
+@media screen and (max-width: $break-small) {
+	
+	body{
+		font-size: em(13px);
+	}
+
+	.__section{
+		@include margin(em(50px) em(30px));
+		.inner__section{
+			@include margin(em(40px) em(20px));
+		}
+	}
+
+	.profile__header{
+		@include padding (em(35px) em(30px));
+	}
+
+	.section__mg{
+		@include margin(em(30px) em(20px));
+	}
+
+}
