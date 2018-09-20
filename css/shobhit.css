@@ -71,10 +71,10 @@ a {
   background: #000000; }
   .main__section::after {
     position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+    left: 55%;
+    right: -4%;
+    top: -1%;
+    bottom: -2%;
     content: '';
     background: url("../images/bg-image.jpg");
     background-repeat: no-repeat;
