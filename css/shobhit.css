@@ -95,6 +95,7 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center right;
+  filter: grayscale(100%);
 }
 .main__section .right__section {
   width: 55%;
